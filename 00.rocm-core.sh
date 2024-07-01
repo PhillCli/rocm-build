@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 mkdir -p $ROCM_BUILD_DIR/rocm-core
 cd $ROCM_BUILD_DIR/rocm-core
@@ -18,7 +18,7 @@ cmake \
   $ROCM_BUILD_DIR/../src/rocm-core
 
 cmake --build . --target package
-sudo dpkg -i *.deb
+#sudo dpkg -i *.deb
 
 END_TIME=`date +%s`
 EXECUTING_TIME=`expr $END_TIME - $START_TIME`
